@@ -1,0 +1,10 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="MultiplyAndDivide">
+  <test name="MultiplyAndDivideTest">
+    <packages>
+      <package name="com.epam.tc.hw1.multtest"></package>
+      <package name="com.epam.tc.hw1.divtest"></package>
+    </packages>
+  </test>
+</suite>

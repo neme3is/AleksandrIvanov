@@ -1,0 +1,13 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="AllTests">
+  <test name="AllTests">
+    <packages>
+      <package name="com.epam.tc.hw1.multtest"></package>
+      <package name="com.epam.tc.hw1.powtest"></package>
+      <package name="com.epam.tc.hw1.subtracttest"></package>
+      <package name="com.epam.tc.hw1.sumtest"></package>
+      <package name="com.epam.tc.hw1.divtest"></package>
+    </packages>
+  </test>
+</suite>
