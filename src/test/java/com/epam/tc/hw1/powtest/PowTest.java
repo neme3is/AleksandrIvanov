@@ -1,23 +1,14 @@
 package com.epam.tc.hw1.powtest;
 
-import com.epam.tat.module4.Calculator;
+import com.epam.tc.hw1.CalcInitialization;
 import org.assertj.core.api.Assertions;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class PowTest {
-    Calculator calculator = new Calculator();
+public class PowTest extends CalcInitialization {
 
-    @DataProvider(name = "TestData")
-    public Object[][] dpMethod() {
-        return new Object[][] {
-            {64, 5, 1073741824}
-        };
-    }
-
-    @Test(dataProvider = "TestData")
-    void powResultCheck(double a, double b, double c) {
-        double result = calculator.pow(a, b);
-        Assertions.assertThat(result).isEqualTo(c);
+    @Test(dataProvider = "ValuesForPowTest", dataProviderClass = ValuesForPowTest.class)
+    void powResultCheck(double num, double pow, double result) {
+        double res = calculator.pow(num, pow);
+        Assertions.assertThat(res).isEqualTo(result);
     }
 }

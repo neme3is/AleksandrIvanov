@@ -1,23 +1,14 @@
 package com.epam.tc.hw1.divtest;
 
-import com.epam.tat.module4.Calculator;
+import com.epam.tc.hw1.CalcInitialization;
 import org.assertj.core.api.Assertions;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class DivTest {
-    Calculator calculator = new Calculator();
+public class DivTest extends CalcInitialization {
 
-    @DataProvider(name = "TestData")
-    public Object[][] dpMethod() {
-        return new Object[][] {
-            {2415919104L, 2, 1207959552}
-        };
-    }
-
-    @Test(dataProvider = "TestData")
-    void divResultCheck(long a, long b, long c) {
-        long result = calculator.div(a, b);
-        Assertions.assertThat(result).isEqualTo(c);
+    @Test(dataProvider = "ValuesForDivisionTest", dataProviderClass = ValuesForDivisionTest.class)
+    void divResultCheck(long dividend, long divisor, long result) {
+        long res = calculator.div(dividend, divisor);
+        Assertions.assertThat(result).isEqualTo(res);
     }
 }

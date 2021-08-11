@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.epam.tc</groupId>
-    <artifactId>Aleksandr_Ivanov</artifactId>
+    <artifactId>AleksandrIvanov</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -17,6 +17,7 @@
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
         <checkstyle.version>8.42</checkstyle.version>
+        <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/MultiplyAndDivide.xml</maven-surefire-plugin.suiteXmlFile>
     </properties>
 
     <dependencies>
@@ -73,67 +74,43 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven-surefire-plugin.version}</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <maven-surefire-plugin.suiteXmlFile>${maven-surefire-plugin.suiteXmlFile}</maven-surefire-plugin.suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 
     <profiles>
         <profile>
-            <id>hw1-first-profile</id>
+            <id>mult-div-profile</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>${maven-surefire-plugin.version}</version>
-                        <configuration>
-                            <suiteXmlFiles>
-                                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/AddAndSubtract.xml</maven-surefire-plugin.suiteXmlFile>
-                            </suiteXmlFiles>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
+            <properties>
+                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/MultiplyAndDivide.xml</maven-surefire-plugin.suiteXmlFile>
+            </properties>
         </profile>
 
         <profile>
-            <id>hw1-second-profile</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>${maven-surefire-plugin.version}</version>
-                        <configuration>
-                            <suiteXmlFiles>
-                                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/AllTests.xml</maven-surefire-plugin.suiteXmlFile>
-                            </suiteXmlFiles>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
+            <id>all-tests-profile</id>
+            <properties>
+                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/AllTests.xml</maven-surefire-plugin.suiteXmlFile>
+            </properties>
         </profile>
 
         <profile>
-            <id>hw1-third-profile</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>${maven-surefire-plugin.version}</version>
-                        <configuration>
-                            <suiteXmlFiles>
-                                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/MultiplyAndDivide.xml</maven-surefire-plugin.suiteXmlFile>
-                            </suiteXmlFiles>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
+            <id>mult-substract-profile</id>
+            <properties>
+                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/MultiplyAndDivide.xml</maven-surefire-plugin.suiteXmlFile>
+            </properties>
         </profile>
-
     </profiles>
 
 </project>

@@ -2,9 +2,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 <suite name="AddAndSubtract">
   <test name="AddAndSubtractTest">
-    <packages>
-      <package name="com.epam.tc.hw1.subtracttest"></package>
-      <package name="com.epam.tc.hw1.sumtest"></package>
-    </packages>
+    <classes>
+      <class name="com.epam.tc.hw1.subtracttest.SubtractTest"/>
+      <class name="com.epam.tc.hw1.sumtest.SumTest"/>
+    </classes>
   </test>
 </suite>
