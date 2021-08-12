@@ -1,11 +1,10 @@
 package com.epam.tc.hw1.sumtest;
 
-import com.epam.tat.module4.Calculator;
+import com.epam.tc.hw1.CalcTestsBaseClass;
 import org.assertj.core.api.Assertions;
 import org.testng.annotations.Test;
 
-public class SumTest {
-    Calculator calculator = new Calculator();
+public class SumTest extends CalcTestsBaseClass {
 
     @Test (dataProvider = "ValuesForSumTest", dataProviderClass = ValuesForSumTest.class)
         void sumResultCheck(long a, long b, long result) {

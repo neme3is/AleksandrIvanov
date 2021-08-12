@@ -80,7 +80,7 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <maven-surefire-plugin.suiteXmlFile>${maven-surefire-plugin.suiteXmlFile}</maven-surefire-plugin.suiteXmlFile>
+                        ${maven-surefire-plugin.suiteXmlFile}
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
@@ -106,9 +106,9 @@
         </profile>
 
         <profile>
-            <id>mult-substract-profile</id>
+            <id>add-subtract-profile</id>
             <properties>
-                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/MultiplyAndDivide.xml</maven-surefire-plugin.suiteXmlFile>
+                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/AddAndSubtract.xml</maven-surefire-plugin.suiteXmlFile>
             </properties>
         </profile>
     </profiles>
