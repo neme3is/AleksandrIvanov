@@ -18,6 +18,8 @@
         <maven-checkstyle-plugin.version>3.1.2</maven-checkstyle-plugin.version>
         <checkstyle.version>8.42</checkstyle.version>
         <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/MultiplyAndDivide.xml</maven-surefire-plugin.suiteXmlFile>
+        <webdrivermanager.version>4.4.3</webdrivermanager.version>
+        <selenium-java.version>3.141.59</selenium-java.version>
     </properties>
 
     <dependencies>
@@ -37,6 +39,17 @@
             <version>1.0</version>
             <scope>system</scope>
             <systemPath>${project.basedir}/libs/calculator-1.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium-java.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -109,6 +122,13 @@
             <id>add-subtract-profile</id>
             <properties>
                 <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/AddAndSubtract.xml</maven-surefire-plugin.suiteXmlFile>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>homework2-tests-profile</id>
+            <properties>
+                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/Hw2Tests.xml</maven-surefire-plugin.suiteXmlFile>
             </properties>
         </profile>
     </profiles>
