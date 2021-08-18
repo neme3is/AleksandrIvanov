@@ -21,6 +21,6 @@ public class Hw2TestsBaseClass {
 
     @AfterClass(alwaysRun = true)
     public void afterTestMethod() {
-        webDriver.close();
+        webDriver.quit();
     }
 }
