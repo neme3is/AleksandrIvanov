@@ -17,34 +17,38 @@ public class ExerciseTwoTests extends Hw2TestsBaseClass {
         webDriver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
 
         softAssert.assertThat("https://jdi-testing.github.io/jdi-light/index.html")
+                  .as("The link isn't valid")
                   .isEqualTo(webDriver.getCurrentUrl());
-        softAssert.assertThat("Home Page").isEqualTo(webDriver.getTitle());
+        softAssert.assertThat("Home Page").as("Title is not correct").isEqualTo(webDriver.getTitle());
 
         webDriver.findElement(By.id("user-icon")).click();
         webDriver.findElement(By.id("name")).sendKeys("Roman");
         webDriver.findElement(By.id("password")).sendKeys("Jdi1234");
         webDriver.findElement(By.id("login-button")).click();
 
-        softAssert.assertThat(webDriver.findElement(By.id("user-name")).getText()).isEqualTo("ROMAN IOVLEV");
+        softAssert.assertThat(webDriver.findElement(By.id("user-name")).getText())
+                  .as("Username is not correct")
+                  .isEqualTo("ROMAN IOVLEV");
 
         // Open through the header menu Service -> Different Elements Page
         webDriver.findElement(By.className("dropdown-toggle")).click();
         webDriver.findElement(By.cssSelector(".m-l8 a[href='different-elements.html']")).click();
         softAssert.assertThat("https://jdi-testing.github.io/jdi-light/different-elements.html")
+                  .as("URL is not equal to expected")
                   .isEqualTo(webDriver.getCurrentUrl());
 
         // Select checkboxes water, wind
         webDriver.findElement(By.xpath("//label[text()[contains(.,'Water')]]/input")).click();
         webDriver.findElement(By.xpath("//label[text()[contains(.,'Wind')]]/input")).click();
         softAssert.assertThat(webDriver.findElement(By.xpath("//label[text()[contains(.,'Water')]]/input"))
-                                       .isSelected());
+                                       .isSelected()).as("Water checkbox is not selected").isTrue();
         softAssert.assertThat(webDriver.findElement(By.xpath("//label[text()[contains(.,'Wind')]]/input"))
-                                       .isSelected());
+                                       .isSelected()).as("Wind checkbox is not selected").isTrue();
 
         // Select radio Selen
         webDriver.findElement(By.xpath("//label[text()[contains(.,'Selen')]]/input")).click();
         softAssert.assertThat(webDriver.findElement(By.xpath("//label[text()[contains(.,'Selen')]]/input"))
-                                       .isSelected());
+                                       .isSelected()).as("Selen radiobutton is not selected").isTrue();
 
         // Select in dropdown Yellow
         webDriver.findElement(By.className("colors")).click();
@@ -54,7 +58,7 @@ public class ExerciseTwoTests extends Hw2TestsBaseClass {
         Select select = new Select(webDriver.findElement(By.cssSelector("select.uui-form-element")));
         String option = select.getFirstSelectedOption().getText();
 
-        softAssert.assertThat(option).isEqualTo("Yellow");
+        softAssert.assertThat(option).as("Yellow is not selected in dropdown list").isEqualTo("Yellow");
 
         //*Assert that:
         //•for each checkbox there is an individual log row and value is corresponded to the status of checkbox*//*
@@ -73,7 +77,8 @@ public class ExerciseTwoTests extends Hw2TestsBaseClass {
             .cssSelector(".logs li"));
 
         for (int i = 0; i < checkboxLogTestValues.size(); i++) {
-            softAssert.assertThat(checkboxLogElements.get(i).getText().contains(checkboxLogTestValues.get(i)));
+            softAssert.assertThat(checkboxLogElements.get(i).getText().contains(checkboxLogTestValues.get(i)))
+                      .as("The log element is not correct").isTrue();
         }
 
         //•for radio button there is a log row and value is corresponded to the status of radio button
@@ -84,11 +89,12 @@ public class ExerciseTwoTests extends Hw2TestsBaseClass {
             we.click();
         }
 
-        List<String> radiobuttonTestValues = List.of("metal: value changed to Selen", "metal: value changed to Bronze",
-            "metal: value changed to Silver", "metal: value changed to Gold");
+        List<String> radiobuttonTestValues = List.of("metal: value changed to Gold",
+            "metal: value changed to Silver", "metal: value changed to Bronze", "metal: value changed to Selen");
 
         for (int i = 0; i < radiobuttonTestValues.size(); i++) {
-            softAssert.assertThat(radiobuttonElements.get(i).getText().contains(radiobuttonTestValues.get(i)));
+            softAssert.assertThat(radiobuttonTestValues.get(i).contains(radiobuttonElements.get(i).getText()))
+                      .as("The log element is not correct").isTrue();
         }
 
         // •for dropdown there is a log row and value is corresponded to the selected value.
@@ -98,11 +104,12 @@ public class ExerciseTwoTests extends Hw2TestsBaseClass {
             we.click();
         }
 
-        List<String> dropdownTestElements = List.of("Colors: value changed to Yellow", "Colors: value changed to Blue",
-            "Colors: value changed to Green", "Colors: value changed to Red");
+        List<String> dropdownTestElements = List.of("Colors: value changed to Red", "Colors: value changed to Green",
+            "Colors: value changed to Blue", "Colors: value changed to Yellow");
 
         for (int i = 0; i < dropdownTestElements.size(); i++) {
-            softAssert.assertThat(dropdownElements.get(i).getText().contains(dropdownTestElements.get(i)));
+            softAssert.assertThat(dropdownTestElements.get(i).contains(dropdownElements.get(i).getText()))
+                      .as("The log element is not correct").isTrue();
         }
 
         softAssert.assertAll();

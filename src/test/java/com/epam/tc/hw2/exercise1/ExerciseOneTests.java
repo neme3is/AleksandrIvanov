@@ -16,30 +16,44 @@ public class ExerciseOneTests extends Hw2TestsBaseClass {
         webDriver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
 
         softAssert.assertThat("https://jdi-testing.github.io/jdi-light/index.html")
+                  .as("The link isn't valid")
                   .isEqualTo(webDriver.getCurrentUrl());
-        softAssert.assertThat("Home Page").isEqualTo(webDriver.getTitle());
+        softAssert.assertThat("Home Page").as("Title is not correct").isEqualTo(webDriver.getTitle());
 
         webDriver.findElement(By.id("user-icon")).click();
         webDriver.findElement(By.id("name")).sendKeys("Roman");
         webDriver.findElement(By.id("password")).sendKeys("Jdi1234");
         webDriver.findElement(By.id("login-button")).click();
 
-        softAssert.assertThat(webDriver.findElement(By.id("user-name")).getText()).isEqualTo("ROMAN IOVLEV");
+        softAssert.assertThat(webDriver.findElement(By.id("user-name")).getText())
+                  .as("Username is not correct")
+                  .isEqualTo("ROMAN IOVLEV");
 
         // Assert that there are 4 items on the header section are displayed and they have proper texts
-        softAssert.assertThat(webDriver.findElements(By.cssSelector(".m-l8 > li > a:first-child")).size() == 4);
+        softAssert.assertThat(webDriver.findElements(By.cssSelector(".m-l8 > li > a:first-child")).size() == 4)
+                  .as("Amount of header elements is not 4")
+                  .isTrue();
 
         softAssert.assertThat(webDriver.findElements(By.cssSelector(".m-l8 > li > a:first-child")))
+                  .as("Header elements is not displayed")
                   .allMatch(i -> i.isDisplayed());
 
-        softAssert.assertThat(webDriver.findElement(By.linkText("HOME")).isDisplayed());
-        softAssert.assertThat(webDriver.findElement(By.linkText("CONTACT FORM")).isDisplayed());
-        softAssert.assertThat(webDriver.findElement(By.linkText("SERVICE")).isDisplayed());
-        softAssert.assertThat(webDriver.findElement(By.linkText("METALS & COLORS")).isDisplayed());
+        softAssert.assertThat(webDriver.findElement(By.linkText("HOME")).isDisplayed())
+                  .as("Home button is not displayed").isTrue();
+        softAssert.assertThat(webDriver.findElement(By.linkText("CONTACT FORM")).isDisplayed())
+                  .as("Contact form button is not displayed").isTrue();
+        softAssert.assertThat(webDriver.findElement(By.linkText("SERVICE")).isDisplayed())
+                  .as("Service button is not displayed").isTrue();
+        softAssert.assertThat(webDriver.findElement(By.linkText("METALS & COLORS")).isDisplayed())
+                  .as("Metals & Colors button is not displayed").isTrue();
 
         // Assert that there are 4 images on the Index Page and they are displayed
-        softAssert.assertThat(webDriver.findElements(By.className("benefit-icon")).size() == 4);
-        softAssert.assertThat(webDriver.findElements(By.className("benefit-icon"))).allMatch(i -> i.isDisplayed());
+        softAssert.assertThat(webDriver.findElements(By.className("benefit-icon")).size() == 4)
+                  .as("Amount of images on Index page is not 4")
+                  .isTrue();
+        softAssert.assertThat(webDriver.findElements(By.className("benefit-icon")))
+                  .as("Benefit icons are not displayed")
+                  .allMatch(i -> i.isDisplayed());
 
         // Assert that there are 4 texts on the Index Page under icons and they have proper text
         List<String> texts = List.of("To include good practices and ideas from successful EPAM project",
@@ -48,17 +62,23 @@ public class ExerciseOneTests extends Hw2TestsBaseClass {
         List<WebElement> list = webDriver.findElements(By.className("benefit-txt"));
 
         for (int i = 0; i < texts.size(); i++) {
-            softAssert.assertThat(list.get(i).getText().replaceAll("\n", " ")).isEqualTo(texts.get(i));
+            softAssert.assertThat(list.get(i).getText().replaceAll("\n", " "))
+                      .as("Benefit texts are not correct")
+                      .isEqualTo(texts.get(i));
         }
 
-        softAssert.assertThat(list).allMatch(i -> i.isDisplayed());
+        softAssert.assertThat(list).as("Benefit texts are not displayed").allMatch(i -> i.isDisplayed());
 
         // Assert that there is the iframe with “Frame Button” exist
-        softAssert.assertThat(webDriver.findElement(By.id("frame")).isDisplayed());
+        softAssert.assertThat(webDriver.findElement(By.id("frame")).isDisplayed())
+                  .as("The frame is not displayed")
+                  .isTrue();
 
         // Switch to the iframe and check that there is “Frame Button” in the iframe
         webDriver.switchTo().frame("frame");
-        softAssert.assertThat(webDriver.findElement(By.xpath("//input[@value='Frame Button']")).isDisplayed());
+        softAssert.assertThat(webDriver.findElement(By.xpath("//input[@value='Frame Button']")).isDisplayed())
+                  .as("The frame button is not displayed")
+                  .isTrue();
 
         // Switch to original window back
         webDriver.switchTo().defaultContent();
@@ -70,10 +90,13 @@ public class ExerciseOneTests extends Hw2TestsBaseClass {
 
         for (int i = 0; i < textsSidebar.size(); i++) {
             softAssert.assertThat(sidebarElements.get(i).getText().replaceAll("\n", " "))
+                      .as("The sidebar text is not correct")
                       .isEqualTo(textsSidebar.get(i));
         }
 
-        softAssert.assertThat(sidebarElements).allMatch(i -> i.isDisplayed());
+        softAssert.assertThat(sidebarElements)
+                  .as("Sidebar elements are not displayed")
+                  .allMatch(i -> i.isDisplayed());
 
         softAssert.assertAll();
     }
