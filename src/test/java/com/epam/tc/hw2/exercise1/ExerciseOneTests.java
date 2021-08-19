@@ -9,10 +9,10 @@ import org.testng.annotations.Test;
 
 public class ExerciseOneTests extends Hw2TestsBaseClass {
 
+    SoftAssertions softAssert = new SoftAssertions();
+
     @Test
     public void ex1Test() {
-        SoftAssertions softAssert = new SoftAssertions();
-
         webDriver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
 
         softAssert.assertThat("https://jdi-testing.github.io/jdi-light/index.html")
@@ -38,8 +38,8 @@ public class ExerciseOneTests extends Hw2TestsBaseClass {
         softAssert.assertThat(webDriver.findElement(By.linkText("METALS & COLORS")).isDisplayed());
 
         // Assert that there are 4 images on the Index Page and they are displayed
-        softAssert.assertThat(webDriver.findElements(By.cssSelector("benefit-icon")).size() == 4);
-        softAssert.assertThat(webDriver.findElements(By.cssSelector("benefit-icon"))).allMatch(i -> i.isDisplayed());
+        softAssert.assertThat(webDriver.findElements(By.className("benefit-icon")).size() == 4);
+        softAssert.assertThat(webDriver.findElements(By.className("benefit-icon"))).allMatch(i -> i.isDisplayed());
 
         // Assert that there are 4 texts on the Index Page under icons and they have proper text
         List<String> texts = List.of("To include good practices and ideas from successful EPAM project",

@@ -10,9 +10,10 @@ import org.testng.annotations.Test;
 
 public class ExerciseTwoTests extends Hw2TestsBaseClass {
 
+    SoftAssertions softAssert = new SoftAssertions();
+
     @Test
     public void ex2Test() {
-        SoftAssertions softAssert = new SoftAssertions();
         webDriver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
 
         softAssert.assertThat("https://jdi-testing.github.io/jdi-light/index.html")
@@ -46,7 +47,7 @@ public class ExerciseTwoTests extends Hw2TestsBaseClass {
                                        .isSelected());
 
         // Select in dropdown Yellow
-        webDriver.findElement(By.cssSelector(".colors")).click();
+        webDriver.findElement(By.className("colors")).click();
         webDriver.findElement((By.xpath("//select[@class='uui-form-element']/option[text()[contains(.,'Yellow')]]")))
                  .click();
 
