@@ -38,14 +38,14 @@ public class ExerciseOneTests extends Hw2TestsBaseClass {
                   .as("Header elements is not displayed")
                   .allMatch(i -> i.isDisplayed());
 
-        softAssert.assertThat(webDriver.findElement(By.linkText("HOME")).isDisplayed())
-                  .as("Home button is not displayed").isTrue();
-        softAssert.assertThat(webDriver.findElement(By.linkText("CONTACT FORM")).isDisplayed())
-                  .as("Contact form button is not displayed").isTrue();
-        softAssert.assertThat(webDriver.findElement(By.linkText("SERVICE")).isDisplayed())
-                  .as("Service button is not displayed").isTrue();
-        softAssert.assertThat(webDriver.findElement(By.linkText("METALS & COLORS")).isDisplayed())
-                  .as("Metals & Colors button is not displayed").isTrue();
+        List<String> menuElements = List.of("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
+
+        for (String i : menuElements) {
+            softAssert.assertThat(webDriver.findElement(By.linkText(i))
+                                           .isDisplayed())
+                      .as("The " + i + " link text was not found")
+                      .isTrue();
+        }
 
         // Assert that there are 4 images on the Index Page and they are displayed
         softAssert.assertThat(webDriver.findElements(By.className("benefit-icon")).size() == 4)
