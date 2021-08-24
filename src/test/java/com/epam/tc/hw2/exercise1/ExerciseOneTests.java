@@ -1,6 +1,7 @@
 package com.epam.tc.hw2.exercise1;
 
 import com.epam.tc.hw2.Hw2TestsBaseClass;
+import java.util.ArrayList;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.By;
@@ -9,10 +10,10 @@ import org.testng.annotations.Test;
 
 public class ExerciseOneTests extends Hw2TestsBaseClass {
 
-    SoftAssertions softAssert = new SoftAssertions();
-
     @Test
     public void ex1Test() {
+        SoftAssertions softAssert = new SoftAssertions();
+
         webDriver.navigate().to("https://jdi-testing.github.io/jdi-light/index.html");
 
         softAssert.assertThat("https://jdi-testing.github.io/jdi-light/index.html")
@@ -35,16 +36,14 @@ public class ExerciseOneTests extends Hw2TestsBaseClass {
                   .isTrue();
 
         softAssert.assertThat(webDriver.findElements(By.cssSelector(".m-l8 > li > a:first-child")))
-                  .as("Header elements is not displayed")
+                  .as("Header elements are not displayed")
                   .allMatch(i -> i.isDisplayed());
-
+        //.m-l8 > li > a
         List<String> menuElements = List.of("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
+        List<WebElement> headerMenuElements = webDriver.findElements(By.cssSelector(".m-l8 > li > a"));
 
-        for (String i : menuElements) {
-            softAssert.assertThat(webDriver.findElement(By.linkText(i))
-                                           .isDisplayed())
-                      .as("The " + i + " link text was not found")
-                      .isTrue();
+        for (int i = 0; i < menuElements.size(); i++){
+            softAssert.assertThat(headerMenuElements.get(i).getText()).isEqualTo(menuElements.get(i));
         }
 
         // Assert that there are 4 images on the Index Page and they are displayed
@@ -59,14 +58,15 @@ public class ExerciseOneTests extends Hw2TestsBaseClass {
         List<String> texts = List.of("To include good practices and ideas from successful EPAM project",
             "To be flexible and customizable", "To be multiplatform",
             "Already have good base (about 20 internal and some external projects), wish to get more…");
-        List<WebElement> list = webDriver.findElements(By.className("benefit-txt"));
 
-        for (int i = 0; i < texts.size(); i++) {
-            softAssert.assertThat(list.get(i).getText().replaceAll("\n", " "))
-                      .as("Benefit texts are not correct")
-                      .isEqualTo(texts.get(i));
+        List<String> actualTexts = new ArrayList<>();
+        for (WebElement we : webDriver.findElements(By.className("benefit-txt"))) {
+            actualTexts.add(we.getText().replaceAll("\n", " "));
         }
 
+        softAssert.assertThat(texts).hasSameElementsAs(actualTexts);
+
+        List<WebElement> list = webDriver.findElements(By.className("benefit-txt"));
         softAssert.assertThat(list).as("Benefit texts are not displayed").allMatch(i -> i.isDisplayed());
 
         // Assert that there is the iframe with “Frame Button” exist
