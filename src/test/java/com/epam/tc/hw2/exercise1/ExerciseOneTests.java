@@ -42,7 +42,7 @@ public class ExerciseOneTests extends Hw2TestsBaseClass {
         List<String> menuElements = List.of("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
         List<WebElement> headerMenuElements = webDriver.findElements(By.cssSelector(".m-l8 > li > a"));
 
-        for (int i = 0; i < menuElements.size(); i++){
+        for (int i = 0; i < menuElements.size(); i++) {
             softAssert.assertThat(headerMenuElements.get(i).getText()).isEqualTo(menuElements.get(i));
         }
 
