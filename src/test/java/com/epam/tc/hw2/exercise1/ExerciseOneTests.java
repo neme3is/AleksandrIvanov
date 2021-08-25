@@ -43,7 +43,7 @@ public class ExerciseOneTests extends Hw2TestsBaseClass {
         List<String> actualHeaderMenuElements = new ArrayList<>();
 
         for (WebElement we : webDriver.findElements(By.cssSelector(".m-l8 > li > a"))) {
-           actualHeaderMenuElements.add(we.getText());
+            actualHeaderMenuElements.add(we.getText());
         }
 
         softAssert.assertThat(menuElements).hasSameElementsAs(actualHeaderMenuElements);

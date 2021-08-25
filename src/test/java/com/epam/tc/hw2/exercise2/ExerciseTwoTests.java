@@ -1,6 +1,7 @@
 package com.epam.tc.hw2.exercise2;
 
 import com.epam.tc.hw2.Hw2TestsBaseClass;
+import java.util.ArrayList;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.By;
@@ -76,10 +77,14 @@ public class ExerciseTwoTests extends Hw2TestsBaseClass {
         List<WebElement> checkboxLogElements = webDriver.findElements(By
             .cssSelector(".logs li"));
 
-        for (int i = 0; i < checkboxLogTestValues.size(); i++) {
-            softAssert.assertThat(checkboxLogElements.get(i).getText().contains(checkboxLogTestValues.get(i)))
-                      .as("The log element is not correct").isTrue();
+        List<String> logTexts = new ArrayList<>();
+
+        for (int i = 0; i < 4; i++) {
+            logTexts.add(checkboxLogElements.get(i).getText().substring(9));
         }
+
+        softAssert.assertThat(logTexts).as("Log elements are wrong")
+                  .hasSameElementsAs(checkboxLogTestValues);
 
         //•for radio button there is a log row and value is corresponded to the status of radio button
         List<WebElement> radiobuttonElements = webDriver.findElements(By
@@ -89,13 +94,18 @@ public class ExerciseTwoTests extends Hw2TestsBaseClass {
             we.click();
         }
 
+        logTexts = new ArrayList<>();
+        checkboxLogElements = webDriver.findElements(By
+            .cssSelector(".logs li"));
+        for (int i = 0; i < 4; i++) {
+            logTexts.add(checkboxLogElements.get(i).getText().substring(9));
+        }
+
         List<String> radiobuttonTestValues = List.of("metal: value changed to Gold",
             "metal: value changed to Silver", "metal: value changed to Bronze", "metal: value changed to Selen");
 
-        for (int i = 0; i < radiobuttonTestValues.size(); i++) {
-            softAssert.assertThat(radiobuttonTestValues.get(i).contains(radiobuttonElements.get(i).getText()))
-                      .as("The log element is not correct").isTrue();
-        }
+        softAssert.assertThat(radiobuttonTestValues).as("Radiobutton logs elements are wrong")
+                  .hasSameElementsAs(logTexts);
 
         // •for dropdown there is a log row and value is corresponded to the selected value.
         List<WebElement> dropdownElements = webDriver.findElements(By.cssSelector("select.uui-form-element option"));
@@ -104,13 +114,19 @@ public class ExerciseTwoTests extends Hw2TestsBaseClass {
             we.click();
         }
 
+        logTexts = new ArrayList<>();
+        checkboxLogElements = webDriver.findElements(By
+            .cssSelector(".logs li"));
+
+        for (int i = 0; i < 4; i++) {
+            logTexts.add(checkboxLogElements.get(i).getText().substring(9));
+        }
+
         List<String> dropdownTestElements = List.of("Colors: value changed to Red", "Colors: value changed to Green",
             "Colors: value changed to Blue", "Colors: value changed to Yellow");
 
-        for (int i = 0; i < dropdownTestElements.size(); i++) {
-            softAssert.assertThat(dropdownTestElements.get(i).contains(dropdownElements.get(i).getText()))
-                      .as("The log element is not correct").isTrue();
-        }
+        softAssert.assertThat(dropdownTestElements).as("Dropdown elements logs are wrong")
+                  .hasSameElementsAs(dropdownTestElements);
 
         softAssert.assertAll();
     }
