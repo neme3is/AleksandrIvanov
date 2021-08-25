@@ -38,13 +38,15 @@ public class ExerciseOneTests extends Hw2TestsBaseClass {
         softAssert.assertThat(webDriver.findElements(By.cssSelector(".m-l8 > li > a:first-child")))
                   .as("Header elements are not displayed")
                   .allMatch(i -> i.isDisplayed());
-        //.m-l8 > li > a
-        List<String> menuElements = List.of("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
-        List<WebElement> headerMenuElements = webDriver.findElements(By.cssSelector(".m-l8 > li > a"));
 
-        for (int i = 0; i < menuElements.size(); i++) {
-            softAssert.assertThat(headerMenuElements.get(i).getText()).isEqualTo(menuElements.get(i));
+        List<String> menuElements = List.of("HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS");
+        List<String> actualHeaderMenuElements = new ArrayList<>();
+
+        for (WebElement we : webDriver.findElements(By.cssSelector(".m-l8 > li > a"))) {
+           actualHeaderMenuElements.add(we.getText());
         }
+
+        softAssert.assertThat(menuElements).hasSameElementsAs(actualHeaderMenuElements);
 
         // Assert that there are 4 images on the Index Page and they are displayed
         softAssert.assertThat(webDriver.findElements(By.className("benefit-icon")).size() == 4)
@@ -84,17 +86,18 @@ public class ExerciseOneTests extends Hw2TestsBaseClass {
         webDriver.switchTo().defaultContent();
 
         // Assert that there are 5 items in the Left Section are displayed and they have proper text
-        List<WebElement> sidebarElements = webDriver.findElements(By.cssSelector(".left > li > a > span"));
         List<String> textsSidebar = List.of("Home", "Contact form", "Service",
             "Metals & Colors", "Elements packs");
+        List<String> actualSidebarTexts = new ArrayList<>();
+        List<WebElement> actualSidebarElements = webDriver.findElements(By.cssSelector(".left > li > a > span"));
 
-        for (int i = 0; i < textsSidebar.size(); i++) {
-            softAssert.assertThat(sidebarElements.get(i).getText().replaceAll("\n", " "))
-                      .as("The sidebar text is not correct")
-                      .isEqualTo(textsSidebar.get(i));
+        for (WebElement we : actualSidebarElements) {
+            actualSidebarTexts.add(we.getText().replaceAll("\n", " "));
         }
 
-        softAssert.assertThat(sidebarElements)
+        softAssert.assertThat(textsSidebar).hasSameElementsAs(actualSidebarTexts);
+
+        softAssert.assertThat(actualSidebarElements)
                   .as("Sidebar elements are not displayed")
                   .allMatch(i -> i.isDisplayed());
 
