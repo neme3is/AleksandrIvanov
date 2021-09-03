@@ -4,6 +4,7 @@ import com.epam.tc.hw3.Hw3TestsBaseClass;
 import com.epam.tc.hw3.pages.DifferentElementsPage;
 import com.epam.tc.hw3.pages.MainPageObject;
 import com.epam.tc.hw3.utils.TestUtils;
+import java.util.ArrayList;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebElement;
@@ -11,15 +12,16 @@ import org.testng.annotations.Test;
 
 public class ExerciseTwoTests extends Hw3TestsBaseClass {
 
-    @Test
-    public void ex2Test() {
+    @Test (dataProvider = "ExerciseTwoValues", dataProviderClass = ValuesForExerciseTwo.class)
+    public void ex2Test(List<String> checkboxLogTestValues, List<String> radiobuttonTestValues,
+                        List<String> dropdownTestElements) {
         SoftAssertions softAssertions = new SoftAssertions();
 
         MainPageObject mainPageObject = new MainPageObject(webDriver);
 
         mainPageObject.login(TestUtils.getUsername(), TestUtils.getPass());
 
-        softAssertions.assertThat(mainPageObject.getLoggedInUsername()).isEqualTo("ROMAN IOVLEV");
+        softAssertions.assertThat(mainPageObject.getLoggedInUsername()).isEqualTo(TestUtils.getLoggedInUsername());
 
         // Open through the header menu Service -> Different Elements Page
         mainPageObject.getHeaderMenu().clickServiceHeaderMenuButton();
@@ -42,26 +44,34 @@ public class ExerciseTwoTests extends Hw3TestsBaseClass {
         //•for each checkbox there is an individual log row and value is corresponded to the status of checkbox*//*
         List<WebElement> logElements = differentElementsPage.getLogRecords();
         differentElementsPage.clickAllCheckboxButtons();
-        for (int i = 0; i < CHECKBOX_LOG_TEST_VALUES.size(); i++) {
-            softAssertions.assertThat(logElements.get(i).getText().contains(CHECKBOX_LOG_TEST_VALUES.get(i))).isTrue();
+        List<String> logTexts = new ArrayList<>();
+        int timecodeLengthToRemove = 9;
+
+        for (int i = 0; i < checkboxLogTestValues.size(); i++) {
+            logTexts.add(logElements.get(i).getText().substring(timecodeLengthToRemove));
+        }
+
+        softAssertions.assertThat(checkboxLogTestValues).hasSameElementsAs(logTexts);
+
+        for (int i = 0; i < checkboxLogTestValues.size(); i++) {
+            softAssertions.assertThat(logElements.get(i).getText().contains(checkboxLogTestValues.get(i))).isTrue();
         }
 
         //•for radio button there is a log row and value is corresponded to the status of radio button
-
         differentElementsPage.clickAllRadiobuttons();
         logElements = differentElementsPage.getLogRecords();
-        for (int i = 0; i < RADIOBUTTON_TEST_VALUES.size(); i++) {
+        for (int i = 0; i < radiobuttonTestValues.size(); i++) {
             softAssertions.assertThat(logElements
                 .get(i)
                 .getText()
-                .contains(RADIOBUTTON_TEST_VALUES.get(i))).isTrue();
+                .contains(radiobuttonTestValues.get(i))).isTrue();
         }
 
         // •for dropdown there is a log row and value is corresponded to the selected value.
         differentElementsPage.clickAllDropdownColorsElements();
         logElements = differentElementsPage.getLogRecords();
-        for (int i = 0; i < DROPDOWN_TEST_ELEMENTS.size(); i++) {
-            softAssertions.assertThat(logElements.get(i).getText().contains(DROPDOWN_TEST_ELEMENTS.get(i)))
+        for (int i = 0; i < dropdownTestElements.size(); i++) {
+            softAssertions.assertThat(logElements.get(i).getText().contains(dropdownTestElements.get(i)))
                           .isTrue();
         }
 

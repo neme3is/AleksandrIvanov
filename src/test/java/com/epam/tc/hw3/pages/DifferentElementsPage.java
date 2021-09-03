@@ -6,8 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 public class DifferentElementsPage extends BasePage {
-    private HeaderMenuPageObject headerMenu;
-    private LeftSideMenuPageObject leftSideMenu;
 
     public DifferentElementsPage(WebDriver driver) {
         super(driver);
