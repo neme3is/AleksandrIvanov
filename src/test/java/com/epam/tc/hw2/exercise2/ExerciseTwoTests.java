@@ -78,9 +78,10 @@ public class ExerciseTwoTests extends Hw2TestsBaseClass {
             .cssSelector(".logs li"));
 
         List<String> logTexts = new ArrayList<>();
+        final int NUMBER_OF_SYMBOLS_TO_DELETE = 9;
 
-        for (int i = 0; i < 4; i++) {
-            logTexts.add(checkboxLogElements.get(i).getText().substring(9));
+        for (int i = 0; i < checkboxLogTestValues.size(); i++) {
+            logTexts.add(checkboxLogElements.get(i).getText().substring(NUMBER_OF_SYMBOLS_TO_DELETE));
         }
 
         softAssert.assertThat(logTexts).as("Log elements are wrong")
@@ -98,7 +99,7 @@ public class ExerciseTwoTests extends Hw2TestsBaseClass {
         checkboxLogElements = webDriver.findElements(By
             .cssSelector(".logs li"));
         for (int i = 0; i < 4; i++) {
-            logTexts.add(checkboxLogElements.get(i).getText().substring(9));
+            logTexts.add(checkboxLogElements.get(i).getText().substring(NUMBER_OF_SYMBOLS_TO_DELETE));
         }
 
         List<String> radiobuttonTestValues = List.of("metal: value changed to Gold",
@@ -119,7 +120,7 @@ public class ExerciseTwoTests extends Hw2TestsBaseClass {
             .cssSelector(".logs li"));
 
         for (int i = 0; i < 4; i++) {
-            logTexts.add(checkboxLogElements.get(i).getText().substring(9));
+            logTexts.add(checkboxLogElements.get(i).getText().substring(NUMBER_OF_SYMBOLS_TO_DELETE));
         }
 
         List<String> dropdownTestElements = List.of("Colors: value changed to Red", "Colors: value changed to Green",
