@@ -49,9 +49,9 @@ public class ExerciseOneTests extends Hw2TestsBaseClass {
         softAssert.assertThat(menuElements).hasSameElementsAs(actualHeaderMenuElements);
 
         // Assert that there are 4 images on the Index Page and they are displayed
-        softAssert.assertThat(webDriver.findElements(By.className("benefit-icon")).size() == 4)
+        softAssert.assertThat(webDriver.findElements(By.className("benefit-icon")))
                   .as("Amount of images on Index page is not 4")
-                  .isTrue();
+                  .hasSize(4);
         softAssert.assertThat(webDriver.findElements(By.className("benefit-icon")))
                   .as("Benefit icons are not displayed")
                   .allMatch(i -> i.isDisplayed());
