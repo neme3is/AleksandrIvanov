@@ -53,27 +53,29 @@ public class ExerciseTwoTests extends Hw3TestsBaseClass {
 
         softAssertions.assertThat(checkboxLogTestValues).hasSameElementsAs(logTexts);
 
-        for (int i = 0; i < checkboxLogTestValues.size(); i++) {
-            softAssertions.assertThat(logElements.get(i).getText().contains(checkboxLogTestValues.get(i))).isTrue();
-        }
-
         //•for radio button there is a log row and value is corresponded to the status of radio button
         differentElementsPage.clickAllRadiobuttons();
+
         logElements = differentElementsPage.getLogRecords();
+        logTexts = new ArrayList<>();
+
         for (int i = 0; i < radiobuttonTestValues.size(); i++) {
-            softAssertions.assertThat(logElements
-                .get(i)
-                .getText()
-                .contains(radiobuttonTestValues.get(i))).isTrue();
+            logTexts.add(logElements.get(i).getText().substring(timecodeLengthToRemove));
         }
+
+        softAssertions.assertThat(radiobuttonTestValues).hasSameElementsAs(logTexts);
 
         // •for dropdown there is a log row and value is corresponded to the selected value.
         differentElementsPage.clickAllDropdownColorsElements();
+
         logElements = differentElementsPage.getLogRecords();
+        logTexts = new ArrayList<>();
+
         for (int i = 0; i < dropdownTestElements.size(); i++) {
-            softAssertions.assertThat(logElements.get(i).getText().contains(dropdownTestElements.get(i)))
-                          .isTrue();
+            logTexts.add(logElements.get(i).getText().substring(timecodeLengthToRemove));
         }
+
+        softAssertions.assertThat(dropdownTestElements).hasSameElementsAs(logTexts);
 
         softAssertions.assertAll();
     }

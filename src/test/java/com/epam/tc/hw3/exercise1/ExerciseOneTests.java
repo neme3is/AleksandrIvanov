@@ -33,12 +33,12 @@ public class ExerciseOneTests extends Hw3TestsBaseClass {
 
         // Assert that there are 4 images on the Index Page and they are displayed
         List<WebElement> benefitImages = mainPageObject.getBenefitImages();
-        softAssertions.assertThat(benefitImages.size()).isEqualTo(4);
+        softAssertions.assertThat(benefitImages).hasSize(4);
         softAssertions.assertThat(benefitImages).allMatch(i -> i.isDisplayed());
 
         // Assert that there are 4 texts on the Index Page under icons and they have proper text
         softAssertions.assertThat(mainPageObject.getBenefitTexts()).hasSameElementsAs(TEXTS);
-        softAssertions.assertThat(mainPageObject.getBenefitTexts().size()).isEqualTo(4);
+        softAssertions.assertThat(mainPageObject.getBenefitTexts()).hasSize(4);
 
         // Assert that there is the iframe with “Frame Button” exist
         softAssertions.assertThat(mainPageObject.getIframeWithFrameButton().isDisplayed()).isTrue();
@@ -51,7 +51,7 @@ public class ExerciseOneTests extends Hw3TestsBaseClass {
         mainPageObject.switchToDefaultWindow();
 
         // Assert that there are 5 items in the Left Section are displayed and they have proper text
-        softAssertions.assertThat(mainPageObject.getLeftSideMenu().getLeftSidebarMenuTexts().size()).isEqualTo(5);
+        softAssertions.assertThat(mainPageObject.getLeftSideMenu().getLeftSidebarMenuTexts()).hasSize(5);
         softAssertions.assertThat(mainPageObject.getLeftSideMenu().getLeftSidebarMenuTexts())
                       .hasSameElementsAs(textsSidebar);
 
