@@ -2,6 +2,7 @@ package com.epam.tc.hw4.exercise1;
 
 import com.epam.tc.hw4.pages.MainPageObject;
 import com.epam.tc.hw4.utils.TestUtils;
+import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
@@ -9,7 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 public class ExerciseOneTestSteps {
-    @Step ("Логин пользователя")
+    @Step ("User login")
     public static void login (MainPageObject mainPageObject) {
         mainPageObject.login(TestUtils.getUsername(), TestUtils.getPass());
     }

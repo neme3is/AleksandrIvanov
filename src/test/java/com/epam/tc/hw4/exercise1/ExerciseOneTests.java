@@ -2,11 +2,15 @@ package com.epam.tc.hw4.exercise1;
 
 import com.epam.tc.hw4.Hw4TestsBaseClass;
 import com.epam.tc.hw4.pages.MainPageObject;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import java.util.List;
 import org.testng.annotations.Test;
 
 public class ExerciseOneTests extends Hw4TestsBaseClass {
 
+    @Feature("Verifying correctness of elements displayed on main page")
+    @Story("Logging in and verifying that elements are displayed")
     @Test (dataProvider = "ExerciseOneValues", dataProviderClass = ValuesForExerciseOne.class)
     public void ex1Test(List<String> menuElements, List<String> textsSidebar, List<String> indexPageTexts) {
         MainPageObject mainPageObject = new MainPageObject(webDriver);
