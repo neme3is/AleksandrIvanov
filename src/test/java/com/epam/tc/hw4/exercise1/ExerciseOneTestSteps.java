@@ -3,22 +3,15 @@ package com.epam.tc.hw4.exercise1;
 import com.epam.tc.hw4.pages.MainPageObject;
 import com.epam.tc.hw4.utils.TestUtils;
 import io.qameta.allure.Step;
-import java.time.chrono.MinguoChronology;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.reporters.jq.Main;
 
 public class ExerciseOneTestSteps {
     @Step ("Логин пользователя")
     public static void login (MainPageObject mainPageObject) {
         mainPageObject.login(TestUtils.getUsername(), TestUtils.getPass());
-    }
-
-    @Step ("Получить имя пользователя в системе")
-    public static String getLoggedInUsername (MainPageObject mainPageObject) {
-        return mainPageObject.getLoggedInUsername();
     }
 
     @Step ("Assert that there are 4 items on the header section are displayed and they have proper texts")

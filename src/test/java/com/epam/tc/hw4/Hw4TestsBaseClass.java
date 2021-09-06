@@ -1,7 +1,6 @@
 package com.epam.tc.hw4;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

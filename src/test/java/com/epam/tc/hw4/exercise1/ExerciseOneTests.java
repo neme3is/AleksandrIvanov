@@ -2,23 +2,17 @@ package com.epam.tc.hw4.exercise1;
 
 import com.epam.tc.hw4.Hw4TestsBaseClass;
 import com.epam.tc.hw4.pages.MainPageObject;
-import com.epam.tc.hw4.utils.TestUtils;
 import java.util.List;
-import org.assertj.core.api.SoftAssertions;
 import org.testng.annotations.Test;
 
 public class ExerciseOneTests extends Hw4TestsBaseClass {
 
     @Test (dataProvider = "ExerciseOneValues", dataProviderClass = ValuesForExerciseOne.class)
     public void ex1Test(List<String> menuElements, List<String> textsSidebar, List<String> indexPageTexts) {
-        SoftAssertions softAssertions = new SoftAssertions();
-
         MainPageObject mainPageObject = new MainPageObject(webDriver);
 
+        // Log In
         ExerciseOneTestSteps.login(mainPageObject);
-
-        softAssertions.assertThat(ExerciseOneTestSteps.getLoggedInUsername(mainPageObject))
-                .isEqualTo(TestUtils.getLoggedInUsername());
 
         // Assert that there are 4 items on the header section are displayed and they have proper texts
         ExerciseOneTestSteps.assertHeaderElements(mainPageObject, menuElements);
@@ -41,7 +35,5 @@ public class ExerciseOneTests extends Hw4TestsBaseClass {
 
         // Assert that there are 5 items in the Left Section are displayed and they have proper text
         ExerciseOneTestSteps.assertFiveItemsInLeftSectionDisplayed(mainPageObject, textsSidebar);
-
-        softAssertions.assertAll();
     }
 }
