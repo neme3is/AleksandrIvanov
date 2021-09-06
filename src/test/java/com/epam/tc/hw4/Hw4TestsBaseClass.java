@@ -12,11 +12,6 @@ public class Hw4TestsBaseClass {
     protected static WebDriver webDriver;
     private String baseURL = "https://jdi-testing.github.io/jdi-light/index.html";
 
-    protected static final List<String> TEXTS = List.of("To include good practices and ideas from successful"
-            + " EPAM project",
-        "To be flexible and customizable", "To be multiplatform",
-        "Already have good base (about 20 internal and some external projects), wish to get more…");
-
     @BeforeClass (alwaysRun = true)
     public void beforeClassMethod() {
         WebDriverManager.chromedriver().setup();
