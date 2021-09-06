@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class ExerciseOneTests extends Hw3TestsBaseClass {
 
     @Test (dataProvider = "ExerciseOneValues", dataProviderClass = ValuesForExerciseOne.class)
-    public void ex1Test(List<String> menuElements, List<String> textsSidebar) {
+    public void ex1Test(List<String> menuElements, List<String> textsSidebar, List<String> indexPageTexts) {
         SoftAssertions softAssertions = new SoftAssertions();
 
         MainPageObject mainPageObject = new MainPageObject(webDriver);
@@ -37,7 +37,7 @@ public class ExerciseOneTests extends Hw3TestsBaseClass {
         softAssertions.assertThat(benefitImages).allMatch(i -> i.isDisplayed());
 
         // Assert that there are 4 texts on the Index Page under icons and they have proper text
-        softAssertions.assertThat(mainPageObject.getBenefitTexts()).hasSameElementsAs(TEXTS);
+        softAssertions.assertThat(mainPageObject.getBenefitTexts()).hasSameElementsAs(indexPageTexts);
         softAssertions.assertThat(mainPageObject.getBenefitTexts()).hasSize(4);
 
         // Assert that there is the iframe with “Frame Button” exist
