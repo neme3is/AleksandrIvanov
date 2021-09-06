@@ -16,9 +16,10 @@ public class ExerciseOneTests extends Hw4TestsBaseClass {
 
         MainPageObject mainPageObject = new MainPageObject(webDriver);
 
-        mainPageObject.login(TestUtils.getUsername(), TestUtils.getPass());
+        ExerciseOneTestSteps.login(mainPageObject);
 
-        softAssertions.assertThat(mainPageObject.getLoggedInUsername()).isEqualTo(TestUtils.getLoggedInUsername());
+        softAssertions.assertThat(ExerciseOneTestSteps.getLoggedInUsername(mainPageObject))
+                .isEqualTo(TestUtils.getLoggedInUsername());
 
         // Assert that there are 4 items on the header section are displayed and they have proper texts
         softAssertions.assertThat(mainPageObject.getHeaderMenu().getHeaderMenuElements())
