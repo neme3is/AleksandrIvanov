@@ -1,12 +1,16 @@
 package com.epam.tc.hw4.exercise1;
 
 import com.epam.tc.hw4.Hw4TestsBaseClass;
+import com.epam.tc.hw4.listeners.ScreenshotListener;
 import com.epam.tc.hw4.pages.MainPageObject;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import java.util.List;
+
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners({ScreenshotListener.class})
 public class ExerciseOneTests extends Hw4TestsBaseClass {
 
     @Feature("Verifying correctness of elements displayed on main page")

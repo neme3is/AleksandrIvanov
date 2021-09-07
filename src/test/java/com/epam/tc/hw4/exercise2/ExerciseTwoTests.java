@@ -1,13 +1,17 @@
 package com.epam.tc.hw4.exercise2;
 
 import com.epam.tc.hw4.Hw4TestsBaseClass;
+import com.epam.tc.hw4.listeners.ScreenshotListener;
 import com.epam.tc.hw4.pages.DifferentElementsPage;
 import com.epam.tc.hw4.pages.MainPageObject;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import java.util.List;
+
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners({ScreenshotListener.class})
 public class ExerciseTwoTests extends Hw4TestsBaseClass {
 
     @Feature("Verifying correctness of displayed elements and functionality on different elements page")
