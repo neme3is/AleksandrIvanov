@@ -1,5 +1,6 @@
 package com.epam.tc.hw4.listeners;
 
+import com.epam.tc.hw4.utils.AttachmentUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ITestListener;
