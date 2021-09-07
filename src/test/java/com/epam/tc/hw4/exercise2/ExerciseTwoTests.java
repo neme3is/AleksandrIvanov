@@ -11,12 +11,11 @@ import java.util.List;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
-@Listeners({ScreenshotListener.class})
 public class ExerciseTwoTests extends Hw4TestsBaseClass {
 
+    @Test (dataProvider = "ExerciseTwoValues", dataProviderClass = ValuesForExerciseTwo.class)
     @Feature("Verifying correctness of displayed elements and functionality on different elements page")
     @Story("Logging in and clicking different elements")
-    @Test (dataProvider = "ExerciseTwoValues", dataProviderClass = ValuesForExerciseTwo.class)
     public void ex2Test(List<String> checkboxLogTestValues, List<String> radiobuttonTestValues,
                         List<String> dropdownTestElements) {
         MainPageObject mainPageObject = new MainPageObject(webDriver);

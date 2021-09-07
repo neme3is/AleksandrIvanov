@@ -1,14 +1,15 @@
 package com.epam.tc.hw4.exercise1;
 
+import com.epam.tc.hw4.listeners.ScreenshotListener;
 import com.epam.tc.hw4.pages.MainPageObject;
 import com.epam.tc.hw4.utils.TestUtils;
-import io.qameta.allure.Feature;
 import io.qameta.allure.Step;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-
+import org.testng.annotations.Listeners;
+@Listeners({ScreenshotListener.class})
 public class ExerciseOneTestSteps {
     @Step ("User login")
     public static void login (MainPageObject mainPageObject) {

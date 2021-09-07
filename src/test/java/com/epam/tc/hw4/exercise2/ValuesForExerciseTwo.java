@@ -8,7 +8,7 @@ public class ValuesForExerciseTwo {
     public static Object[][] sidebarTexts() {
         return new Object[][] {
             {List.of("Fire: condition changed to true",
-                "Wind: condition changed to false",
+                "WindYEE: condition changed to false",
                 "Earth: condition changed to true", "Water: condition changed to false"),
                 List.of("metal: value changed to Selen",
                     "metal: value changed to Bronze",

@@ -1,5 +1,6 @@
 package com.epam.tc.hw4.exercise2;
 
+import com.epam.tc.hw4.listeners.ScreenshotListener;
 import com.epam.tc.hw4.pages.DifferentElementsPage;
 import com.epam.tc.hw4.pages.MainPageObject;
 import com.epam.tc.hw4.utils.TestUtils;
@@ -8,9 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.Listeners;
 
 public class ExerciseTwoTestSteps {
-    @Step("Логин пользователя")
+    @Step("User login")
     public static void login (MainPageObject mainPageObject) {
         mainPageObject.login(TestUtils.getUsername(), TestUtils.getPass());
     }

@@ -13,9 +13,9 @@ import org.testng.annotations.Test;
 @Listeners({ScreenshotListener.class})
 public class ExerciseOneTests extends Hw4TestsBaseClass {
 
+    @Test (dataProvider = "ExerciseOneValues", dataProviderClass = ValuesForExerciseOne.class)
     @Feature("Verifying correctness of elements displayed on main page")
     @Story("Logging in and verifying that elements are displayed")
-    @Test (dataProvider = "ExerciseOneValues", dataProviderClass = ValuesForExerciseOne.class)
     public void ex1Test(List<String> menuElements, List<String> textsSidebar, List<String> indexPageTexts) {
         MainPageObject mainPageObject = new MainPageObject(webDriver);
 
@@ -43,5 +43,6 @@ public class ExerciseOneTests extends Hw4TestsBaseClass {
 
         // Assert that there are 5 items in the Left Section are displayed and they have proper text
         ExerciseOneTestSteps.assertFiveItemsInLeftSectionDisplayed(mainPageObject, textsSidebar);
+
     }
 }
