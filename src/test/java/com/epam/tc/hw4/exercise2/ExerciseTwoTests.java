@@ -10,7 +10,7 @@ import java.util.List;
 
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-
+@Listeners({ScreenshotListener.class})
 public class ExerciseTwoTests extends Hw4TestsBaseClass {
 
     @Test (dataProvider = "ExerciseTwoValues", dataProviderClass = ValuesForExerciseTwo.class)

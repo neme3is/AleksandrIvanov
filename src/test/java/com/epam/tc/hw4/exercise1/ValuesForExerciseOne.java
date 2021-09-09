@@ -7,7 +7,8 @@ public class ValuesForExerciseOne {
     @DataProvider(name = "ExerciseOneValues")
     public static Object[][] sidebarTexts() {
         return new Object[][] {
-            {List.of("HOME", "CONTACT FORM",
+            {
+                List.of("HOME", "CONTACT FORM",
                 "SERVICE", "METALS & COLORS"),
                 List.of("Home", "Contact form", "Service",
                 "Metals & Colors", "Elements packs"),
