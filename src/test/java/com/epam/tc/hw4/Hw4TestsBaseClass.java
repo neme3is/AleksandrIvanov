@@ -9,21 +9,17 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 public class Hw4TestsBaseClass {
-    public static WebDriver webDriver;
+    public WebDriver webDriver;
     private String baseURL = "https://jdi-testing.github.io/jdi-light/index.html";
 
     @BeforeClass (alwaysRun = true)
-    public void setupDriver() {
+    public void setupDriver(ITestContext context) {
         WebDriverManager.chromedriver().setup();
         webDriver = new ChromeDriver();
         webDriver.manage().timeouts()
                      .implicitlyWait(3, TimeUnit.SECONDS);
         webDriver.manage().window().maximize();
         webDriver.get(baseURL);
-    }
-
-    @BeforeClass
-    public void setAttribute(ITestContext context){
         context.setAttribute("WebDriver", webDriver);
     }
 
