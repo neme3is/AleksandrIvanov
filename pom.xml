@@ -20,6 +20,7 @@
         <webdrivermanager.version>4.4.3</webdrivermanager.version>
         <selenium-java.version>3.141.59</selenium-java.version>
         <assertj-core.version>3.19.0</assertj-core.version>
+        <cucumber.version>6.11.0</cucumber.version>
     </properties>
 
     <dependencies>
@@ -52,6 +53,16 @@
             <artifactId>assertj-core</artifactId>
             <version>${assertj-core.version}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
         </dependency>
     </dependencies>
 
