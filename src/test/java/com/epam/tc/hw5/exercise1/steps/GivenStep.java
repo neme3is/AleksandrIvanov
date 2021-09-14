@@ -1,5 +1,6 @@
 package com.epam.tc.hw5.exercise1.steps;
 
+import com.epam.tc.hw3.utils.TestUtils;
 import io.cucumber.java.en.Given;
 
 public class GivenStep extends AbstractStep{
@@ -10,11 +11,11 @@ public class GivenStep extends AbstractStep{
 
     @Given("I login the site")
     public void loginSite(){
-
+        mainPageObject.login(TestUtils.getUsername(), TestUtils.getPass());
     }
 
-    @Given("I open through the header menu {string} -> {string} Page")
+    @Given("I open through the header menu Service -> Different Elements Page")
     public void openSubcategoryInHeaderMenu(String category, String subcategory) {
-
+        mainPageObject.getHeaderMenu().clickDifferentElementsMenuButton();
     }
 }

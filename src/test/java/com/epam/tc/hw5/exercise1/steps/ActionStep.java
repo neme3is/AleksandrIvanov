@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ActionStep extends AbstractStep {
 
-    @When("I select {string} and {string} checkboxes")
+    @When("I select Water and Wind checkboxes")
     public void selectCheckboxes(String a, String b) {
         differentElementsPage.selectWindCheckbox();
         differentElementsPage.selectWaterCheckbox();
@@ -20,14 +20,14 @@ public class ActionStep extends AbstractStep {
         TestContext.getInstance().addTestObject("diff_el_page_checkboxes", checkboxes);
     }
 
-    @When("I select {string} radiobutton")
+    @When("I select Selen radiobutton")
     public void selectSelenRadiobutton(String a) {
         differentElementsPage.selectSelenRadiobutton();
 
         TestContext.getInstance().addTestObject("diff_el_page_radiobutton", a);
     }
 
-    @When("I select {string} color in dropdown list")
+    @When("I select Yellow color in dropdown list")
     public void selectYellowColorInDropdownList(String a) {
         differentElementsPage.selectYellowColorInDropdownList();
 
