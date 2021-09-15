@@ -1,6 +1,6 @@
-package com.epam.tc.hw5.exercise1.hooks;
+package com.epam.tc.hw5.cucumber.hooks;
 
-import com.epam.tc.hw5.exercise1.context.TestContext;
+import com.epam.tc.hw5.cucumber.context.TestContext;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;

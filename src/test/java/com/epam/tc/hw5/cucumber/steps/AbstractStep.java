@@ -1,10 +1,10 @@
-package com.epam.tc.hw5.exercise1.steps;
+package com.epam.tc.hw5.cucumber.steps;
 
-import com.epam.tc.hw3.pages.DifferentElementsPage;
-import com.epam.tc.hw3.pages.HeaderMenuPageObject;
-import com.epam.tc.hw3.pages.LeftSideMenuPageObject;
-import com.epam.tc.hw3.pages.MainPageObject;
-import com.epam.tc.hw5.exercise1.context.TestContext;
+import com.epam.tc.hw5.cucumber.pages.DifferentElementsPage;
+import com.epam.tc.hw5.cucumber.pages.HeaderMenuPageObject;
+import com.epam.tc.hw5.cucumber.pages.LeftSideMenuPageObject;
+import com.epam.tc.hw5.cucumber.pages.MainPageObject;
+import com.epam.tc.hw5.cucumber.context.TestContext;
 import org.openqa.selenium.WebDriver;
 
 import java.util.List;

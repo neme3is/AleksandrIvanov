@@ -1,6 +1,6 @@
-package com.epam.tc.hw5.exercise1.steps;
+package com.epam.tc.hw5.cucumber.steps;
 
-import com.epam.tc.hw5.exercise1.context.TestContext;
+import com.epam.tc.hw5.cucumber.context.TestContext;
 import io.cucumber.java.en.When;
 import java.util.ArrayList;
 import java.util.List;

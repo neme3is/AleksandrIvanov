@@ -1,4 +1,4 @@
-package com.epam.tc.hw5.exercise1.steps;
+package com.epam.tc.hw5.cucumber.steps;
 
 import io.cucumber.java.en.Then;
 import java.util.ArrayList;

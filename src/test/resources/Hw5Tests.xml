@@ -3,7 +3,7 @@
 <suite name="Homework5TestsSuite">
   <test name="Homework5Tests">
     <classes>
-      <class name="com.epam.tc.hw5.exercise1.RunExerciseOneTest"/>
+      <class name="com.epam.tc.hw5.cucumber.RunExerciseOneTest"/>
     </classes>
   </test>
 </suite>
