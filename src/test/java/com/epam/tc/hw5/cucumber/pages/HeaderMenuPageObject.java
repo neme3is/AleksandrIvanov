@@ -20,6 +20,9 @@ public class HeaderMenuPageObject extends BasePage {
     @FindBy(css = ".m-l8 a[href='different-elements.html']")
     private WebElement differentElementsPage;
 
+    @FindBy(css = ".m-l8 a[href='user-table.html']")
+    private WebElement userTableDropdownButton;
+
     public List<WebElement> getHeaderMenuElements() {
         return headerMenuElements;
     }
@@ -39,5 +42,9 @@ public class HeaderMenuPageObject extends BasePage {
 
     public void clickDifferentElementsMenuButton() {
         differentElementsPage.click();
+    }
+
+    public void clickUserTableDropdownButton() {
+        userTableDropdownButton.click();
     }
 }

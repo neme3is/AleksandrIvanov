@@ -5,6 +5,7 @@ import com.epam.tc.hw5.cucumber.pages.HeaderMenuPageObject;
 import com.epam.tc.hw5.cucumber.pages.LeftSideMenuPageObject;
 import com.epam.tc.hw5.cucumber.pages.MainPageObject;
 import com.epam.tc.hw5.cucumber.context.TestContext;
+import com.epam.tc.hw5.cucumber.pages.UserTablePageObject;
 import org.openqa.selenium.WebDriver;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public abstract class AbstractStep {
     protected DifferentElementsPage differentElementsPage;
     protected HeaderMenuPageObject headerMenuPageObject;
     protected LeftSideMenuPageObject leftSideMenuPageObject;
+    protected UserTablePageObject userTablePageObject;
 
     public AbstractStep() {
         WebDriver driver = TestContext.getInstance().getTestObject("web_driver");
@@ -22,6 +24,7 @@ public abstract class AbstractStep {
         differentElementsPage = new DifferentElementsPage(driver);
         headerMenuPageObject = new HeaderMenuPageObject(driver);
         leftSideMenuPageObject = new LeftSideMenuPageObject(driver);
+        userTablePageObject = new UserTablePageObject(driver);
     }
 
 }

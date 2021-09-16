@@ -20,4 +20,14 @@ public class ActionStep extends AbstractStep {
     public void selectYellowColorInDropdownList() {
         differentElementsPage.selectYellowColorInDropdownList();
     }
+
+    @When("I click on 'Service' button in Header")
+    public void clickHeaderServiceButton() {
+        headerMenuPageObject.clickServiceHeaderMenuButton();
+    }
+
+    @When("I click on 'User Table' button in Service dropdown")
+    public void clickUserTableInDropdown() {
+        headerMenuPageObject.clickUserTableDropdownButton();
+    }
 }

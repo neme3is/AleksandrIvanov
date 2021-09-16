@@ -26,7 +26,7 @@ public class CucumberHook {
         List<String> radiobuttonLog = List.of("metal: value changed to Selen");
         List<String> colorLog =  List.of("Colors: value changed to Yellow");
         List<String> checkboxLog = List.of(
-                "Wind: condition changed to false", "Water: condition changed to false");
+                "Wind: condition changed to true", "Water: condition changed to true");
         TestContext.getInstance().addTestObject("radiobutton_log", radiobuttonLog);
         TestContext.getInstance().addTestObject("color_log", colorLog);
         TestContext.getInstance().addTestObject("checkbox_log", checkboxLog);

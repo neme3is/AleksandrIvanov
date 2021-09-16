@@ -16,7 +16,6 @@ public class ExerciseTwoTests extends Hw3TestsBaseClass {
     public void ex2Test(List<String> checkboxLogTestValues, List<String> radiobuttonTestValues,
                         List<String> dropdownTestElements) {
         SoftAssertions softAssertions = new SoftAssertions();
-
         MainPageObject mainPageObject = new MainPageObject(webDriver);
 
         mainPageObject.login(TestUtils.getUsername(), TestUtils.getPass());

@@ -4,11 +4,13 @@ import com.epam.tc.hw3.utils.TestUtils;
 import io.cucumber.java.en.Given;
 
 public class GivenStep extends AbstractStep {
+    @Given("I open JDI GitHub site")
     @Given("I open jdi-testing.com index page")
     public void openJdiHomePage() {
         mainPageObject.open();
     }
 
+    @Given("I login as user 'Roman Iovlev'")
     @Given("I login the site")
     public void loginSite(){
         mainPageObject.login(TestUtils.getUsername(), TestUtils.getPass());
@@ -20,4 +22,6 @@ public class GivenStep extends AbstractStep {
         mainPageObject.getHeaderMenu().clickDifferentElementsMenuButton();
         differentElementsPage.open();
     }
+
+
 }
