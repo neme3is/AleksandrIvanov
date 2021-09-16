@@ -18,5 +18,6 @@ public class GivenStep extends AbstractStep {
     public void openSubcategoryInHeaderMenu() {
         mainPageObject.getHeaderMenu().clickServiceHeaderMenuButton();
         mainPageObject.getHeaderMenu().clickDifferentElementsMenuButton();
+        differentElementsPage.open();
     }
 }

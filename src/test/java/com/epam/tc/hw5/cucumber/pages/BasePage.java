@@ -5,7 +5,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
-    private static final String BASE_URL = "https://jdi-testing.github.io/jdi-light/index.html";
+    private static final String BASE_URL = "https://jdi-testing.github.io";
     protected WebDriver driver;
     protected WebDriverWait wait;
 
@@ -16,6 +16,6 @@ public class BasePage {
     }
 
     protected void open(String url) {
-        driver.navigate().to(BASE_URL + url );
+        driver.navigate().to(BASE_URL + url);
     }
 }

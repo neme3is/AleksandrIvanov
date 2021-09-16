@@ -107,7 +107,7 @@ public class MainPageObject extends BasePage {
     }
 
     public void open() {
-        open("");
+        open("/jdi-light/index.html");
     }
 
 }

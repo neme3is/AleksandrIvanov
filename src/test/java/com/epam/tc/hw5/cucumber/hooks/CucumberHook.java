@@ -7,6 +7,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.List;
+
 public class CucumberHook {
 
     private WebDriver driver;
@@ -17,6 +19,17 @@ public class CucumberHook {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         TestContext.getInstance().addTestObject("web_driver", driver);
+    }
+
+    @Before
+    public void testData() {
+        List<String> radiobuttonLog = List.of("metal: value changed to Selen");
+        List<String> colorLog =  List.of("Colors: value changed to Yellow");
+        List<String> checkboxLog = List.of(
+                "Wind: condition changed to false", "Water: condition changed to false");
+        TestContext.getInstance().addTestObject("radiobutton_log", radiobuttonLog);
+        TestContext.getInstance().addTestObject("color_log", colorLog);
+        TestContext.getInstance().addTestObject("checkbox_log", checkboxLog);
     }
 
     @After
