@@ -23,5 +23,4 @@ public class GivenStep extends AbstractStep {
         differentElementsPage.open();
     }
 
-
 }

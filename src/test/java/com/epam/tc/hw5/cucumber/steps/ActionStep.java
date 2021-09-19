@@ -30,4 +30,9 @@ public class ActionStep extends AbstractStep {
     public void clickUserTableInDropdown() {
         headerMenuPageObject.clickUserTableDropdownButton();
     }
+
+    @When("I select 'vip' checkbox for 'Sergey Ivan'")
+    public void clickVipCheckbox() {
+        userTablePageObject.clickSergeyIvanVipCheckbox();
+    }
 }
