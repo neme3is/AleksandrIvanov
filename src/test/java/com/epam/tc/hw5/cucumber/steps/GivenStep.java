@@ -12,7 +12,7 @@ public class GivenStep extends AbstractStep {
 
     @Given("I login as user 'Roman Iovlev'")
     @Given("I login the site")
-    public void loginSite(){
+    public void loginSite() {
         mainPageObject.login(TestUtils.getUsername(), TestUtils.getPass());
     }
 

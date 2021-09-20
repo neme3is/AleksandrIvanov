@@ -4,7 +4,6 @@ import com.epam.tc.hw5.cucumber.context.TestContext;
 import com.epam.tc.hw5.cucumber.utils.UserTable;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -13,9 +12,10 @@ import java.util.Set;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
-public class AssertionStep extends AbstractStep{
+public class AssertionStep extends AbstractStep {
     private int timecodeLengthToRemove = 9;
     List<String> logElements = new ArrayList<String>();
+
     {
         differentElementsPage.getLogRecords().stream().forEach(element -> logElements.add(element
             .getText().substring(timecodeLengthToRemove)));
@@ -41,8 +41,8 @@ public class AssertionStep extends AbstractStep{
 
     @Then("'User Table' page should be opened")
     public void verifyUserTablePageWasOpened() {
-        Assertions.assertThat(((WebDriver) TestContext.getInstance().getTestObject("web_driver")).getCurrentUrl()).
-            isEqualTo("https://jdi-testing.github.io/jdi-light/user-table.html");
+        Assertions.assertThat(((WebDriver) TestContext.getInstance().getTestObject("web_driver")).getCurrentUrl())
+                  .isEqualTo("https://jdi-testing.github.io/jdi-light/user-table.html");
     }
 
     @Then("6 Number Type Dropdowns should be displayed on Users Table on User Table Page")
@@ -89,7 +89,7 @@ public class AssertionStep extends AbstractStep{
         Set<String> dropdownExpectedValues = new HashSet<>();
 
         for (Map<String, String> map : dropdownExpectedValuesMaps) {
-           dropdownExpectedValues.add(map.get("Dropdown Values"));
+            dropdownExpectedValues.add(map.get("Dropdown Values"));
         }
 
         Assertions.assertThat(dropdownExpectedValues).hasSameElementsAs(userTablePageObject.getDropdownOptions());

@@ -4,6 +4,8 @@
   <test name="Homework5Tests">
     <classes>
       <class name="com.epam.tc.hw5.cucumber.RunExerciseOneTest"/>
+      <class name="com.epam.tc.hw5.cucumber.RunExerciseTwoTest"/>
+      <class name="com.epam.tc.hw5.cucumber.RunExerciseThreeTest"/>
     </classes>
   </test>
 </suite>

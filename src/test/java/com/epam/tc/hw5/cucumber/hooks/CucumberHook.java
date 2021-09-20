@@ -4,10 +4,10 @@ import com.epam.tc.hw5.cucumber.context.TestContext;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import java.util.List;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.List;
 
 public class CucumberHook {
 

@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class UserTablePageObject extends BasePage{
+public class UserTablePageObject extends BasePage {
     private HeaderMenuPageObject headerMenu;
     private LeftSideMenuPageObject leftSideMenu;
     private int elementsInLogToRemove = 9;

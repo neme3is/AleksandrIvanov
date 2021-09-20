@@ -150,6 +150,12 @@
                 <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/Hw3Tests.xml</maven-surefire-plugin.suiteXmlFile>
             </properties>
         </profile>
+        <profile>
+            <id>homework5-tests-profile</id>
+            <properties>
+                <maven-surefire-plugin.suiteXmlFile>${project.build.testOutputDirectory}/Hw5Tests.xml</maven-surefire-plugin.suiteXmlFile>
+            </properties>
+        </profile>
     </profiles>
 
 </project>
