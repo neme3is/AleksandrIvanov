@@ -11,7 +11,7 @@ import org.openqa.selenium.WebElement;
 
 public class ExerciseTwoTestSteps {
     @Step("User login")
-    public static void login (MainPageObject mainPageObject) {
+    public static void login(MainPageObject mainPageObject) {
         mainPageObject.login(TestUtils.getUsername(), TestUtils.getPass());
     }
 

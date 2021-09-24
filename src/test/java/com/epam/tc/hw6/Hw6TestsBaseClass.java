@@ -1,9 +1,8 @@
 package com.epam.tc.hw6;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import com.epam.tc.hw6.driver.WebDriverSingleton;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -14,8 +13,7 @@ public class Hw6TestsBaseClass {
 
     @BeforeClass (alwaysRun = true)
     public void setupDriver(ITestContext context) {
-        WebDriverManager.chromedriver().setup();
-        webDriver = new ChromeDriver();
+        webDriver = WebDriverSingleton.getDriver();
         webDriver.manage().timeouts()
                      .implicitlyWait(3, TimeUnit.SECONDS);
         webDriver.manage().window().maximize();
@@ -25,6 +23,6 @@ public class Hw6TestsBaseClass {
 
     @AfterClass(alwaysRun = true)
     public void afterTestMethod() {
-        webDriver.quit();
+        WebDriverSingleton.closeDriver();
     }
 }

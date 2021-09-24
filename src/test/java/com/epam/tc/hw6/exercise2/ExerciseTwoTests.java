@@ -7,9 +7,9 @@ import com.epam.tc.hw6.pages.MainPageObject;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import java.util.List;
-
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+
 @Listeners({ScreenshotListener.class})
 public class ExerciseTwoTests extends Hw6TestsBaseClass {
 

@@ -9,10 +9,11 @@ import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
+
 @Listeners({ScreenshotListener.class})
 public class ExerciseOneTestSteps {
     @Step ("User login")
-    public static void login (MainPageObject mainPageObject) {
+    public static void login(MainPageObject mainPageObject) {
         mainPageObject.login(TestUtils.getUsername(), TestUtils.getPass());
     }
 
