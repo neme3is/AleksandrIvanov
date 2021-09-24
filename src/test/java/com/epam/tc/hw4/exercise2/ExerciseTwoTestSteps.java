@@ -13,7 +13,7 @@ import org.testng.annotations.Listeners;
 
 public class ExerciseTwoTestSteps {
     @Step("User login")
-    public static void login (MainPageObject mainPageObject) {
+    public static void login(MainPageObject mainPageObject) {
         mainPageObject.login(TestUtils.getUsername(), TestUtils.getPass());
     }
 

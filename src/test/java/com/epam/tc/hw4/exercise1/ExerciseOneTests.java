@@ -6,7 +6,6 @@ import com.epam.tc.hw4.pages.MainPageObject;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import java.util.List;
-
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 

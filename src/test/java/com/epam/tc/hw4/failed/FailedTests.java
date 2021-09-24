@@ -11,7 +11,7 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners({ScreenshotListener.class})
-public class FailedTests extends Hw4TestsBaseClass{
+public class FailedTests extends Hw4TestsBaseClass {
     @Test (dataProvider = "ValuesForFailed", dataProviderClass = ValuesForFailed.class)
     public void ex1Test(List<String> menuElements, List<String> textsSidebar, List<String> indexPageTexts) {
         SoftAssertions softAssertions = new SoftAssertions();
