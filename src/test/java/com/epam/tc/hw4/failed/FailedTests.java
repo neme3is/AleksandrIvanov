@@ -3,7 +3,6 @@ package com.epam.tc.hw4.failed;
 import com.epam.tc.hw4.Hw4TestsBaseClass;
 import com.epam.tc.hw4.listeners.ScreenshotListener;
 import com.epam.tc.hw4.pages.MainPageObject;
-import com.epam.tc.hw4.utils.TestUtils;
 import java.util.List;
 import org.assertj.core.api.SoftAssertions;
 import org.openqa.selenium.WebElement;
@@ -13,14 +12,15 @@ import org.testng.annotations.Test;
 @Listeners({ScreenshotListener.class})
 public class FailedTests extends Hw4TestsBaseClass {
     @Test (dataProvider = "ValuesForFailed", dataProviderClass = ValuesForFailed.class)
-    public void ex1Test(List<String> menuElements, List<String> textsSidebar, List<String> indexPageTexts) {
+    public void ex1Test(List<String> menuElements, List<String> textsSidebar, List<String> indexPageTexts, String username,
+                        String password, String expectedUsername) {
         SoftAssertions softAssertions = new SoftAssertions();
 
         MainPageObject mainPageObject = new MainPageObject(webDriver);
 
-        mainPageObject.login(TestUtils.getUsername(), TestUtils.getPass());
+        mainPageObject.login(username, password);
 
-        softAssertions.assertThat(mainPageObject.getLoggedInUsername()).isEqualTo(TestUtils.getLoggedInUsername());
+        softAssertions.assertThat(mainPageObject.getLoggedInUsername()).isEqualTo(expectedUsername);
 
         // Assert that there are 4 items on the header section are displayed and they have proper texts
         softAssertions.assertThat(mainPageObject.getHeaderMenu().getHeaderMenuElements())

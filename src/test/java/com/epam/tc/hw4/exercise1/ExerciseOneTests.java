@@ -1,8 +1,10 @@
 package com.epam.tc.hw4.exercise1;
 
 import com.epam.tc.hw4.Hw4TestsBaseClass;
+import com.epam.tc.hw4.exercise2.ExerciseTwoTestSteps;
 import com.epam.tc.hw4.listeners.ScreenshotListener;
 import com.epam.tc.hw4.pages.MainPageObject;
+import com.epam.tc.hw4.utils.TestUtils;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import java.util.List;
@@ -19,7 +21,7 @@ public class ExerciseOneTests extends Hw4TestsBaseClass {
         MainPageObject mainPageObject = new MainPageObject(webDriver);
 
         // Log In
-        ExerciseOneTestSteps.login(mainPageObject);
+        ExerciseOneTestSteps.login(mainPageObject, TestUtils.getPass(), TestUtils.getUsername());
 
         // Assert that there are 4 items on the header section are displayed and they have proper texts
         ExerciseOneTestSteps.assertHeaderElements(mainPageObject, menuElements);

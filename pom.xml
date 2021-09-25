@@ -124,14 +124,6 @@
                     <configuration>
                       <reportVersion>${allure.version}</reportVersion>
                     </configuration>
-                    <executions>
-                      <execution>
-                        <phase>test</phase>
-                        <goals>
-                          <goal>report</goal>
-                        </goals>
-                      </execution>
-                    </executions>
             </plugin>
         </plugins>
     </build>

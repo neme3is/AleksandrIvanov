@@ -4,6 +4,7 @@ import com.epam.tc.hw4.Hw4TestsBaseClass;
 import com.epam.tc.hw4.listeners.ScreenshotListener;
 import com.epam.tc.hw4.pages.DifferentElementsPage;
 import com.epam.tc.hw4.pages.MainPageObject;
+import com.epam.tc.hw4.utils.TestUtils;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import java.util.List;
@@ -21,7 +22,7 @@ public class ExerciseTwoTests extends Hw4TestsBaseClass {
         MainPageObject mainPageObject = new MainPageObject(webDriver);
 
         // Log In
-        ExerciseTwoTestSteps.login(mainPageObject);
+        ExerciseTwoTestSteps.login(mainPageObject, TestUtils.getPass(), TestUtils.getUsername());
 
         // Open through the header menu Service -> Different Elements Page
         DifferentElementsPage differentElementsPage = ExerciseTwoTestSteps.openDifferentElementsPage(mainPageObject);

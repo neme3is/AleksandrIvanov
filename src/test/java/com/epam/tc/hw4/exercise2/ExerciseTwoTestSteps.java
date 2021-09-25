@@ -9,12 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 import org.assertj.core.api.Assertions;
 import org.openqa.selenium.WebElement;
-import org.testng.annotations.Listeners;
 
 public class ExerciseTwoTestSteps {
     @Step("User login")
-    public static void login(MainPageObject mainPageObject) {
-        mainPageObject.login(TestUtils.getUsername(), TestUtils.getPass());
+    public static void login(MainPageObject mainPageObject, String password, String username) {
+        mainPageObject.login(username, password);
     }
 
     @Step("Open through the header menu Service -> Different Elements Page")
