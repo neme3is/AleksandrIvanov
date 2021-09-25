@@ -12,8 +12,8 @@ import org.testng.annotations.Test;
 @Listeners({ScreenshotListener.class})
 public class FailedTests extends Hw4TestsBaseClass {
     @Test (dataProvider = "ValuesForFailed", dataProviderClass = ValuesForFailed.class)
-    public void ex1Test(List<String> menuElements, List<String> textsSidebar, List<String> indexPageTexts, String username,
-                        String password, String expectedUsername) {
+    public void ex1Test(List<String> menuElements, List<String> textsSidebar, List<String> indexPageTexts,
+                        String username, String password, String expectedUsername) {
         SoftAssertions softAssertions = new SoftAssertions();
 
         MainPageObject mainPageObject = new MainPageObject(webDriver);
