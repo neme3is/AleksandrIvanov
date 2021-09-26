@@ -11,8 +11,8 @@ import org.openqa.selenium.WebElement;
 
 public class ExerciseTwoTestSteps {
     @Step("User login")
-    public static void login(MainPageObject mainPageObject) {
-        mainPageObject.login(TestUtils.getUsername(), TestUtils.getPass());
+    public static void login(MainPageObject mainPageObject, String password, String username) {
+        mainPageObject.login(username, password);
     }
 
     @Step("Open through the header menu Service -> Different Elements Page")

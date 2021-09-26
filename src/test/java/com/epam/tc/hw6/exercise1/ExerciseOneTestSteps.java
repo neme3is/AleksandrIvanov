@@ -13,8 +13,8 @@ import org.testng.annotations.Listeners;
 @Listeners({ScreenshotListener.class})
 public class ExerciseOneTestSteps {
     @Step ("User login")
-    public static void login(MainPageObject mainPageObject) {
-        mainPageObject.login(TestUtils.getUsername(), TestUtils.getPass());
+    public static void login(MainPageObject mainPageObject, String password, String username) {
+        mainPageObject.login(username, password);
     }
 
     @Step ("Assert that there are 4 items on the header section are displayed and they have proper texts")

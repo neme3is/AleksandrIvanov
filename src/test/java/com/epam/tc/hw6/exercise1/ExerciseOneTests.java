@@ -3,6 +3,7 @@ package com.epam.tc.hw6.exercise1;
 import com.epam.tc.hw6.Hw6TestsBaseClass;
 import com.epam.tc.hw6.listeners.ScreenshotListener;
 import com.epam.tc.hw6.pages.MainPageObject;
+import com.epam.tc.hw6.utils.TestUtils;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import java.util.List;
@@ -19,7 +20,7 @@ public class ExerciseOneTests extends Hw6TestsBaseClass {
         MainPageObject mainPageObject = new MainPageObject(webDriver);
 
         // Log In
-        ExerciseOneTestSteps.login(mainPageObject);
+        ExerciseOneTestSteps.login(mainPageObject, TestUtils.getPass(), TestUtils.getUsername());
 
         // Assert that there are 4 items on the header section are displayed and they have proper texts
         ExerciseOneTestSteps.assertHeaderElements(mainPageObject, menuElements);

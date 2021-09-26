@@ -62,6 +62,7 @@
             <artifactId>allure-testng</artifactId>
             <version>${allure.version}</version>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -91,7 +92,7 @@
                 <executions>
                     <execution>
                         <id>validate</id>
-                        <phase>test</phase>
+                        <phase>validate</phase>
                         <goals>
                             <goal>check</goal>
                         </goals>
@@ -103,34 +104,8 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.20</version>
                 <configuration>
-                    <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                    </argLine>
                     <suiteXmlFiles>${maven-surefire-plugin.suiteXmlFile}</suiteXmlFiles>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjweaver</artifactId>
-                        <version>${aspectj.version}</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-            <plugin>
-                <groupId>io.qameta.allure</groupId>
-                    <artifactId>allure-maven</artifactId>
-                    <version>2.10.0</version>
-                    <configuration>
-                      <reportVersion>${allure.version}</reportVersion>
-                    </configuration>
-                    <executions>
-                      <execution>
-                        <phase>test</phase>
-                        <goals>
-                          <goal>report</goal>
-                        </goals>
-                      </execution>
-                    </executions>
             </plugin>
         </plugins>
     </build>
@@ -174,17 +149,4 @@
         </profile>
     </profiles>
 
-    <reporting>
-        <excludeDefaults>true</excludeDefaults>
-        <plugins>
-            <plugin>
-                <groupId>io.qameta.allure</groupId>
-                <artifactId>allure-maven</artifactId>
-                <version>2.10.0</version>
-                <configuration>
-                    <reportVersion>${allure.version}</reportVersion>
-                </configuration>
-            </plugin>
-        </plugins>
-    </reporting>
 </project>
